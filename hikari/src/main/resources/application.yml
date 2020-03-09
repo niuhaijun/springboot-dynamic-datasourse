@@ -1,0 +1,42 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: hikari
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      master:
+        name: master
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost/springboot_dynamic_datasourse_master?useSSL=false
+        port: 3306
+        username: root
+        password: '!@#$1234Abcd'
+      slaveAlpha:
+        name: slave
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost/springboot_dynamic_datasourse_slave_alpha?useSSL=false
+        port: 3306
+        username: root
+        password: '!@#$1234Abcd'
+      slaveBeta:
+        name: slave
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost/springboot_dynamic_datasourse_slave_beta?useSSL=false
+        port: 3306
+        username: root
+        password: '!@#$1234Abcd'
+      slaveGamma:
+        name: slave
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost/springboot_dynamic_datasourse_slave_gamma?useSSL=false
+        port: 3306
+        username: root
+        password: '!@#$1234Abcd'
+
+
+mybatis:
+  type-aliases-package: "xx"
+  config-location: classpath:mapper/*.xml
