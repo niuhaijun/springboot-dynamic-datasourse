@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: hikari
+    name: hikari-datasource
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -35,7 +35,3 @@ spring:
         port: 3306
         username: root
         password: '!@#$1234Abcd'
-
-
-mybatis:
-  config-location: classpath:mapper/*.xml
