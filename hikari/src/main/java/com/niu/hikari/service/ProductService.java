@@ -11,8 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ProductService {
 
-	@Resource
 	private ProductMapper productDao;
+
+	public ProductService(ProductMapper productDao) {
+
+		this.productDao = productDao;
+	}
 
 	/**
 	 * Get product by id
@@ -42,6 +46,12 @@ public class ProductService {
 
 	/**
 	 * Add product to DB
+	 *
+	 * 切换数据源失败的原因为事务切面的order最低，
+	 * 根据AOP的运行顺序，先进入事务AOP
+	 * 这就导致切换数据源AOP尚未执行，无法切换数据源，
+	 * 最终的表现就是
+	 *  有事务的情况下切换数据源不生效
 	 */
 	@Transactional(rollbackFor = Exception.class)
 	@TargetDataSource("slaveBeta")

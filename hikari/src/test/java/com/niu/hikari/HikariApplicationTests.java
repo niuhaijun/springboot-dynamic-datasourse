@@ -20,7 +20,7 @@ class HikariApplicationTests {
 	}
 
 	@Test
-	public void add() throws Exception {
+	public void add() {
 
 		Product newProduct = new Product();
 		newProduct.setName("niu");
