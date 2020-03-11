@@ -5,18 +5,15 @@ import com.niu.common.model.Product;
 import com.niu.hikari.config.TargetDataSource;
 import java.util.List;
 import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ProductService {
 
+	@Resource
 	private ProductMapper productDao;
-
-	public ProductService(ProductMapper productDao) {
-
-		this.productDao = productDao;
-	}
 
 	/**
 	 * Get product by id
